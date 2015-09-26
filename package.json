@@ -1,6 +1,6 @@
 {
   "name": "shitty-ask",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get a random new post from /r/ShittyAskScience",
   "bin": "./index.js",
   "dependencies": {

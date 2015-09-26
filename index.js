@@ -1,4 +1,4 @@
-#!/usr/bin/en node
+#!/usr/bin/env node
 'use strict';
 
 var cheerio = require('cheerio');

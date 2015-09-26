@@ -1,5 +1,5 @@
 # shitty-ask
-Get a random new post from /r/ShittyAskScience
+Get a random post from /r/ShittyAskScience
 
 ## Installation
 You can install this package directly from NPM:
@@ -14,9 +14,15 @@ questions you wish no one had ever asked.
 
 ```
 $ shitty-ask
+---
+Why would anyone ever need shitty ask science questions on demand?
+---
+http://www.reddit.com/r/shittyaskscience/
+```
+### Choose which type of list to use
 
-My weather app says I have 10 mile visibility even though I can see the moon. Any reason for this?
+Add ```new```, ```hot```, ```rising```, ```controversial```, or ```top```
 
-
-http://www.reddit.com/r/shittyaskscience/comments/3mfkcv/my_weather_app_says_i_have_10_mile_visibility/
+```
+$ shitty-ask top
 ```

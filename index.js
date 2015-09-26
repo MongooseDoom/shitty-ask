@@ -3,20 +3,30 @@
 
 var cheerio = require('cheerio');
 var request = require('request');
+var URL = 'https://www.reddit.com/r/shittyaskscience/';
+var lists = ["new","hot","rising","controversial","top"];
 
-var URL = 'https://www.reddit.com/r/shittyaskscience/new/';
+
+if (lists.indexOf(process.argv[2]) != -1) {
+  URL += process.argv[2];
+}
 
 request(URL, function(err, response, body){
   if (err || response.statusCode != 200) {
-    throw new Error("Couldn't reach /r/shittyaskscience. Too many shitty questions.");
+    throw new Error("Couldn't reach /r/ShittyAskScience. Too many shitty questions.");
   }
-  console.log('\n');
+
   var $ = cheerio.load(body);
-  var randomShitty = getRandomInt(1,25);
+  var randomShitty = getRandomInt(0,25);
   var selectedShitty = $('#siteTable .thing').eq(randomShitty).find('a.title');
+  console.log('---');
   console.log(selectedShitty.text());
-  console.log('\n');
-  console.log('http://www.reddit.com'+selectedShitty.attr('href'));
+  console.log('---');
+  if ($('#siteTable .thing').eq(randomShitty).hasClass('self')) {
+    console.log('http://www.reddit.com'+selectedShitty.attr('href'));
+  } else {
+    console.log(selectedShitty.attr('href'));
+  }
 });
 
 /**
